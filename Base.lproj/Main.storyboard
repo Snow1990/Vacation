@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9oU-NN-Qa8">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--度假地列表-->
+        <scene sceneID="nXG-hh-UuT">
+            <objects>
+                <tableViewController id="PUe-zW-W4W" customClass="PlaceListTableViewController" customModule="Vacation" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MbU-du-Smw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="VacationPlace" id="ped-oc-8vv">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ped-oc-8vv" id="apC-rJ-Ago">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="PUe-zW-W4W" id="EbG-hV-TBj"/>
+                            <outlet property="delegate" destination="PUe-zW-W4W" id="9hV-4K-fRu"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="度假地列表" id="dB8-pS-tbO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4wV-IE-2JZ">
+                            <connections>
+                                <segue destination="hhg-d3-Qtt" kind="presentation" id="nZz-DZ-nOv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9hz-Vq-aae" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="459" y="339"/>
+        </scene>
+        <!--新增度假地-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="AddPlaceViewController" customModule="Vacation" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="新增度假地" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bgC-7k-EX8">
+                                <rect key="frame" x="16" y="147" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bgC-7k-EX8" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="83" id="16B-ot-SIS"/>
+                            <constraint firstItem="bgC-7k-EX8" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="NIQ-TU-cyM"/>
+                            <constraint firstItem="bgC-7k-EX8" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="fTc-U6-y0n"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="新增度假地" id="gO7-yw-4mu">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="aD0-NN-IeU">
+                            <connections>
+                                <segue destination="NiC-38-TXT" kind="unwind" unwindAction="unwindToList:" id="pWy-Kk-gba"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="6ZT-d7-2MU">
+                            <connections>
+                                <segue destination="NiC-38-TXT" kind="unwind" unwindAction="unwindToList:" id="ouu-xL-ym3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="6ZT-d7-2MU" id="ces-1K-TgQ"/>
+                        <outlet property="textField" destination="bgC-7k-EX8" id="Q0S-h6-PtV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <exit id="NiC-38-TXT" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1981" y="339"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QYk-4h-DGU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hhg-d3-Qtt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fJv-n3-sz3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="Bn7-V8-Hjp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FQW-0G-5Qx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1214" y="339"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="k0J-ma-r59">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9oU-NN-Qa8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aqT-G7-jfd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="PUe-zW-W4W" kind="relationship" relationship="rootViewController" id="oir-K1-6M6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L3K-Fb-eMH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-353" y="339"/>
+        </scene>
+    </scenes>
+</document>
